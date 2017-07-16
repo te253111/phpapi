@@ -89,7 +89,7 @@
             $conn = $this->getconnection();
             $sql = "select * from muser where username='$user' and password='$pass'";
             $result = $conn->query($sql);
-            if($result) {
+            if($result->num_rows > 0) {
                 $res="true";
             }
             $conn->close();
