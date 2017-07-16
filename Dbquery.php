@@ -85,11 +85,15 @@
 
         public function login($user, $pass)
         {
+            $res="false";
             $conn = $this->getconnection();
             $sql = "select * from muser where username='$user' and password='$pass'";
             $result = $conn->query($sql);
+            if($result) {
+                $res="true";
+            }
             $conn->close();
-            echo  $this->getresult($result);
+            echo  $res;
         }
     }
 ?>
